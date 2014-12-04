@@ -11,8 +11,8 @@
 *
 * Huge problem here: This doesn't account for users who have changed
 * the format of their logfile in ANY WAY. This makes the usefulness
-* of this program somewhat limited. I guess we'll see if it's still
-* functional for us, and then consider sharing it with others.
+* of this program somewhat limited. This will be changed in future
+* versions
 *
 *******************************************************************/
 //Header definition
@@ -59,12 +59,48 @@ public:
      * stoi to get the numbers out of the string without the semicolons. (Done)
      */
     void operator = (logEntry& a) {this->msgTime = a.msgTime; this->msgContent = a.msgContent; this->msgType = a.msgType;}
-    bool friend operator == (logEntry& a, logEntry& b) {return a.stoi() == b.stoi();}
-    bool friend operator != (logEntry& a, logEntry& b) {return a.stoi() != b.stoi();}
-    bool friend operator > (logEntry& a, logEntry& b) {return a.stoi() > b.stoi();}
-    bool friend operator >= (logEntry& a, logEntry& b) {return a.stoi() >= b.stoi();}
-    bool friend operator < (logEntry& a, logEntry& b) {return a.stoi() < b.stoi();}
-    bool friend operator <= (logEntry& a, logEntry& b) {return a.stoi() <= b.stoi();}
+    bool friend operator == (logEntry& a, logEntry& b)
+        {
+            if (a.absDate == b.absDate)
+                return a.stoi() == b.stoi();
+            else
+                return false;
+        }
+    bool friend operator != (logEntry& a, logEntry& b)
+    {
+        if (a.absDate != b.absDate)
+            return a.stoi() != b.stoi();
+        else
+            return false;
+    }
+    bool friend operator > (logEntry& a, logEntry& b)
+    {
+        if (a.absDate == b.absDate)
+            return a.stoi() > b.stoi();
+        else
+            return a.absDate > b.absDate;
+    }
+    bool friend operator >= (logEntry& a, logEntry& b)
+    {
+        if (a.absDate == b.absDate)
+            return a.stoi() >= b.stoi();
+        else
+            return a.absDate >= b.absDate;
+    }
+    bool friend operator < (logEntry& a, logEntry& b)
+    {
+        if (a.absDate == b.absDate)
+            return a.stoi() < b.stoi();
+        else
+            return a.absDate < b.absDate;
+    }
+    bool friend operator <= (logEntry& a, logEntry& b)
+    {
+        if (a.absDate == b.absDate)
+            return a.stoi() <= b.stoi();
+        else
+            return a.absDate <= b.absDate;
+    }
 
 };
 
@@ -75,6 +111,7 @@ logEntry::logEntry()//Tried to create a log entry without passing a string
     this->msgTime = "";
     this->msgContent = "";
     this->msgType = LOG_INVALID;
+    this->absDate = 0;
 }
 
 logEntry::logEntry(std::string a) //Constructor for a standard log entry
@@ -84,6 +121,7 @@ logEntry::logEntry(std::string a) //Constructor for a standard log entry
         this->msgTime = a.substr(0,8);
         this->msgContent = a;
         this->msgType = LOG_MSG;
+        this->absDate = 0;
     }
     else if (a.substr(0,1) == "-") //First character is a -, must be a day change or open/close.
     {
