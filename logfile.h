@@ -24,7 +24,7 @@
 #define LOG_OPEN  0 //Message is of the form --- Log opened DAY MTH ## HH:MM:SS YYYY
 #define LOG_MSG   1 //Message is of the form HH:MM:SS[USERNAME] [MESSAGE]
 #define LOG_DAY   2 //Message is of the form --- Day changed DAY MTH ## YYYY
-#define LOG_CLOSE 3 //Message is of the form --- Log opened DAY MTH ## HH:MM:SS YYYY
+#define LOG_CLOSE 3 //Message is of the form --- Log closed DAY MTH ## HH:MM:SS YYYY
 #define LOG_INVALID -1 //Something is wrong
 
 
