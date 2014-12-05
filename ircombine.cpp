@@ -158,7 +158,8 @@ void sortLog(Logfile a, Logfile b, ofstream &fout)
      */
 
     //Let's make two integers that'll go through each list and keep track of the current position
-    unsigned int ap(0), bp(0);
+    //unsigned int ap(0), bp(0);
+    vector<logEntry>::size_type ap(0), bp(0);
 
     while (ap < a.msgs.size() && bp < b.msgs.size())
     {
