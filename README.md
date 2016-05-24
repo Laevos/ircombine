@@ -1,9 +1,9 @@
-ircombine 1.0
+ircombine
 =============
-ircombine 1.0 - a log merger for irssi. This program reads in two
+ircombine - a log merger for irssi. This program reads in two
 irssi logfiles, and sorts them chronologically. This is useful 
 when, for example, you have two logfiles for the same person, 
-separated by an underscore: User and User_, or just somebody who 
+separated by an underscore: User and User\_, or just somebody who 
 has a variety of names! It requires at least two arguments, the
 names of the two logfiles that you want to read, with an optional
 command to output the resultant log to a filename of your choosing

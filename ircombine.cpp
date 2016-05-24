@@ -1,5 +1,5 @@
 /***********************************************************************************
-* ircombine 1.0 - a log merger for irssi. This program reads in two
+* ircombine 0.2.1 - a log merger for irssi. This program reads in two
 * irssi logfiles, and sorts them chronologically. This is useful 
 * when, for example, you have two logfiles for the same person, 
 * separated by an underscore: User and User_, or just somebody who 
@@ -48,6 +48,9 @@
 //Define error codes
 #define MISSING_LOG -1
 
+//Version
+#define VERSION "0.2.0"
+
 using namespace std;
 
 //Sort function
@@ -64,7 +67,7 @@ int main(int argc, char * argv[])
     ofstream outlog;
     string FAIL_SYNTAX = "SYNTAX: ircombine INPUTFILE1.log INPUTFILE2.log [-o OUTPUTFILE.log]\n";
 
-    if (argc < 3 || argc == 4)//Check for at least two input files; reject if less than two or exactly three (a third file with no command)
+    if (argc < 2 || argc == 4)//Check for at least two input files; reject if less than two or exactly three (a third file with no command)
     {
             cout << FAIL_SYNTAX;
             exit(EXIT_FAILURE);
@@ -87,6 +90,16 @@ int main(int argc, char * argv[])
             }
         }
     }
+    else
+    {
+        string in1 = argv[1];
+        if (in1 == "-v" || in1 == "--version")
+        {
+            cout << "ircombine " << VERSION << endl;
+            exit(0);
+        }
+    }
+
 
     //If no name given, make default name
     if (!outlog.is_open())
