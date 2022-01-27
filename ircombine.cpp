@@ -1,14 +1,13 @@
 /***********************************************************************************
-* ircombine 0.1.1 - a log merger for irssi. This program reads in two
-* irssi logfiles, and sorts them chronologically. This is useful 
-* when, for example, you have two logfiles for the same person, 
-* separated by an underscore: User and User_, or just somebody who 
-* has a variety of names! It requires at least two arguments, the
-* names of the two logfiles that you want to read, with an optional
-* command to output the resultant log to a filename of your choosing
-* (otherwise it'll default to ircombineOutput.log, and that's a really
-* boring file name, not to mention a pretty useless one, so don't let
-* this happen to you!
+* ircombine 0.1.1 - a log merger for irssi. By Laevos.
+* This program reads in two irssi logfiles, and sorts them chronologically.
+* This is useful when, for example, you have two logfiles for the same person,
+* separated by an underscore: User and User_, or just somebody who has a
+* variety of names! It requires at least two arguments, the names of the two
+* logfiles that you want to read, with an optional command to output the
+* resultant log to a filename of your choosing (otherwise it'll default to
+* ircombineOutput.log, and that's a really boring file name, not to mention a
+* pretty useless one, so don't let this happen to you!
 *
 * This program is meant to compile with minimum dependencies; everything
 * needed to run it should be found in the standard libraries and the
